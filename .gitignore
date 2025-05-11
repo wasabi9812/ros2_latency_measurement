@@ -1,0 +1,6 @@
+# build-files
+**/build/
+**/install/
+
+# log-files
+**/log/
