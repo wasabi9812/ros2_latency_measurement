@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- latsub/plugin.xml -->
+<library path="lib/liblatsub_component.so">
+  <class
+    name="latsub_ns::LatencySubscriberComponent"
+    type="latsub_ns::LatencySubscriberComponent"
+    base_class_type="rclcpp_components::NodeFactory"/>
+</library>

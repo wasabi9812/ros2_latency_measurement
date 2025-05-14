@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- latpub/plugin.xml -->
+<library path="lib/liblatpub_component.so">
+  <class
+    name="latpub_ns::LatencyPublisherComponent"
+    type="latpub_ns::LatencyPublisherComponent"
+    base_class_type="rclcpp_components::NodeFactory"/>
+</library>

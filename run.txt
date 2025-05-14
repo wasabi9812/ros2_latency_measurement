@@ -1,0 +1,53 @@
+ros2 run latpub latpub_node \
+  --ros-args \
+    -p payload_size:=16777216  \
+    -p period_hz:=10.0 \
+    -p sample_count:=1000 \
+    -p qos_depth:=100 \
+    -p qos_reliable:=true \
+    -p qos_history:=KEEP_LAST
+
+
+
+ros2 run latsub latsub_node \
+  --ros-args \
+    -p payload_size:=16777216 \
+    -p period_hz:=10.0 \
+    -p sample_count:=1000 \
+    -p qos_depth:=100 \
+    -p qos_reliable:=true \
+    -p qos_history:=KEEP_LAST
+
+
+
+
+
+
+
+
+
+ros2 run rclcpp_components component_container \
+  --ros-args \
+    -p use_intra_process_comms:=true
+
+
+
+
+ros2 component load /ComponentManager latpub \
+  latpub_ns::LatencyPublisherComponent \
+  --param payload_size:=16777216 \
+  --param period_hz:=10.0 \
+  --param sample_count:=1000 \
+  --param qos_depth:=100 \
+  --param qos_reliable:=true \
+  --param qos_history:=KEEP_LAST
+
+
+ros2 component load /ComponentManager latsub \
+  latsub_ns::LatencySubscriberComponent \
+  --param payload_size:=16777216 \
+  --param period_hz:=10.0 \
+  --param sample_count:=1000 \
+  --param qos_depth:=100 \
+  --param qos_reliable:=true \
+  --param qos_history:=KEEP_LAST
